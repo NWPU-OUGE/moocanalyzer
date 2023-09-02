@@ -1,0 +1,608 @@
+<!DOCTYPE html>
+<html style="height: auto;">
+ 
+	<head>
+		<meta charset="UTF-8">
+		<meta http-equiv="X-UA-Compatible" content="IE=edge">
+		<meta name="viewport" content="width=device-width, initial-scale=1">
+		<title>西安租房</title>
+		<link href="css/bootstrap.min.css" rel="stylesheet">
+		<link rel="stylesheet" href="css/main.css">
+		<script src="js/jquery-3.0.0.min.js"></script>
+		<script src="js/bootstrap.min.js"></script>
+		<style type="text/css">
+			#show{
+				color: white;
+				background-color: white;
+				font-family:楷体;
+			}
+			
+			#Title{
+				color: black;
+				background-color: whitesmoke;
+				font-family:微软雅黑;
+			}
+					
+			
+			.panel-group {
+				height: 100%;
+				overflow-y: visible;
+				background-color: whitesmoke;
+				background-size: contain;
+			}
+			
+			
+			.panel-default{
+				padding: 3px;
+				border: 1px solid rgba(20,81,154,0);
+				background-color: whitesmoke;
+				background-size: cover;
+				opacity: 1.0;
+			}
+			
+			.panel-default>.panel-heading {
+				background: lightgray;
+				  /* 创建渐变 */
+				  background-image: -webkit-linear-gradient(top, lightgray, lightgray);
+				  background-image: -moz-linear-gradient(top, lightgray, lightgray);
+				  background-image: -ms-linear-gradient(top, lightgray, lightgray);
+				  background-image: -o-linear-gradient(top, lightgray, lightgray);
+				  background-image: linear-gradient(to bottom, lightgray, lightgray);
+				  /* 给按钮添加圆角 */
+				  -webkit-border-radius: 28;
+				  -moz-border-radius: 28;
+				  border-radius: 28px;
+				  
+				  
+				  font-family: Arial;
+				  color: black;
+				  font-size: 15px;
+				  padding: 18px;
+				  text-decoration: none;
+			}
+			.panel-default>.panel-heading:active,.panel-default>.panel-heading:hover{
+				background: lightgray;
+				  background-image: -webkit-linear-gradient(top, lightgray, lightgray);
+				  background-image: -moz-linear-gradient(top, lightgray, lightgray);
+				  background-image: -ms-linear-gradient(top, lightgray, lightgray);
+				  background-image: -o-linear-gradient(top, lightgray, lightgray);
+				  background-image: linear-gradient(to bottom, lightgray, lightgray);
+				  text-decoration: none;
+				  color: darkblue;
+				  
+			}
+			.panel-group .panel-heading+.panel-collapse>.panel-body {
+				border: none;
+			}
+			.panel-body {
+				padding: 0px;
+			}
+			.nav>li{
+				
+				  
+				  padding: 3px;
+				  
+			}
+			.nav>li>button{
+				background: lightgray;
+				  /* 创建渐变 */
+				  background-image: -webkit-linear-gradient(top, lightgray, lightgray);
+				  background-image: -moz-linear-gradient(top, lightgray, lightgray);
+				  background-image: -ms-linear-gradient(top, lightgray, lightgray);
+				  background-image: -o-linear-gradient(top, lightgray, lightgray);
+				  background-image: linear-gradient(to bottom, lightgray, lightgray);
+				  /* 给按钮添加圆角 */
+				  -webkit-border-radius: 28;
+				  -moz-border-radius: 28;
+				  border-radius: 28px;
+				  border: none;
+				  
+				  font-family: Arial;
+				  color: black;
+				  font-size: 10px;
+				  padding: 15px;
+				  text-decoration: none;
+			}
+			.nav>li>button:hover,.nav>li>button:focus{
+				background: lightgray;
+				  background-image: -webkit-linear-gradient(top, lightgray, lightgray);
+				  background-image: -moz-linear-gradient(top, lightgray, lightgray);
+				  background-image: -ms-linear-gradient(top, lightgray, lightgray);
+				  background-image: -o-linear-gradient(top, lightgray, lightgray);
+				  background-image: linear-gradient(to bottom, lightgray, lightgray);
+				  text-decoration: none;
+				  color: darkblue;
+			}
+			.name{
+				font-size: 100%;
+				color: black;
+				font-weight: 1000;
+			}
+			
+			.text_introduce{
+				font-size: 120%;
+				color: black;
+				font-weight: 1000;
+			}
+		</style>
+		
+	</head>
+ 
+	<body style="height:800px" onload="load_home1()">
+		<div class="container-fluid text-center " id="Title">
+			<h1 style="font-family: Arial;">
+				西安租房市场可视化展示
+			</h1>
+		</div>
+		
+		
+		<div id="panelContainer" class="col-md-1 panel-group " >
+			<div class="panel panel-default">
+				<div id="header1" class="panel-heading text-center" data-toggle="collapse" data-target="#sub1" data-parent="#panelContainer">
+					
+					数据统计
+					
+				</div>
+				<div id="sub1" class="collapse panel-collapse">
+					<div class="panel-body">
+						<ul class="nav">
+							<li>
+								<button type="button" id="btn1" onclick="javascript:load_home1();">西安市</button>
+							</li>
+							<li>
+								<button type="button" id="btn2" onclick="javascript:load_home2();">灞桥区</button>
+							</li>
+							<li>
+								<button type="button" id="btn3" onclick="javascript:load_home3();">碑林区</button>
+							</li>
+							<li>
+								<button type="button" id="btn4" onclick="javascript:load_home4();">高陵区</button>
+							</li>
+							<li>
+								<button type="button" id="btn5" onclick="javascript:load_home5();">莲湖区</button>
+							</li>
+							<li>
+								<button type="button" id="btn6" onclick="javascript:load_home6();">临潼区</button>
+							</li>
+							<li>
+								<button type="button" id="btn7" onclick="javascript:load_home7();">未央区</button>
+							</li>
+							<li>
+								<button type="button" id="btn8" onclick="javascript:load_home8();">西咸新区</button>
+							</li>
+							<li>
+								<button type="button" id="btn9" onclick="javascript:load_home9();">新城区</button>
+							</li>
+							<li>
+								<button type="button" id="btn10" onclick="javascript:load_home10();">雁塔区</button>
+							</li>
+							<li>
+								<button type="button" id="btn11" onclick="javascript:load_home11();">长安区</button>
+							</li>
+						</ul>
+					</div>
+				</div>
+				<div style="height:20px width:100%">
+					<p></p>
+				</div>
+				<div id="header2" class="panel-heading text-center" data-toggle="collapse" data-target="#sub2" data-parent="#panelContainer" >
+					
+					数据分析
+					
+				</div>
+				<div id="sub2" class="collapse panel-collapse">
+					<div class="panel-body">
+						<ul class="nav">
+							<li>
+								<button type="button" id="btne" onclick="javascript:load_homee();">概览</button>
+							</li>
+							<li>
+								<button type="button" id="btna" onclick="javascript:load_homea();">面积/租金图</button>
+							</li>
+							<li>
+								<button type="button" id="btnb" onclick="javascript:load_homeb();">影响分析</button>
+							</li>
+							<li>
+								<button type="button" id="btnd" onclick="javascript:load_homed();">性价比分析</button>
+							</li>
+							<li>
+								<button type="button" id="btnc" onclick="javascript:load_homec();">房源分类图</button>
+							</li>
+							
+						</ul>
+					</div>
+				</div>
+			</div>
+			
+		</div>
+		
+		
+		
+		<div class="col-md-11 " style="height: 100%;" id="show">
+			
+			<div class="col-md-4 name" id="title1" style="height:10px " >
+				
+			</div>
+			<div class="col-md-4 name" id="title2" style="height:10px">
+				
+			</div>
+			<div class="col-md-4 name" id="title3" style="height:10px">
+				
+			</div>
+			<div class="col-md-4 text_introduce" id="show1" style="height:420px">
+			</div>
+			<div class="col-md-4 text_introduce" id="show2" style="height:420px">
+			</div>
+			<div class="col-md-4 text_introduce" id="show3" style="height:420px">			  
+			</div>
+			
+			<div class="col-md-4 name" id="title4" style="height:10px">
+				
+			</div>
+			<div class="col-md-4 name" id="title5" style="height:10px">
+				
+			</div>
+			<div class="col-md-4 name" id="title6" style="height:10px">
+				
+			</div>
+			<div class="col-md-4 text_introduce" id="show4" style="height:420px">			  
+			</div>
+			<div class="col-md-4 text_introduce" id="show5" style="height:420px">			  
+			</div>			
+			<div class="col-md-4 text_introduce" id="show6" style="height:420px">		  
+			</div>
+			
+			
+		</div>
+		
+		
+		
+ 
+		<script>
+			$(function() {
+				$(".panel-heading").on("click", function(e) {
+					var idLength = e.currentTarget.id.length;
+					var index = e.currentTarget.id.substr(idLength - 1, idLength);
+					$("#sub" + index).on('hidden.bs.collapse', function() {
+						$(e.currentTarget).find("span").removeClass("glyphicon glyphicon-triangle-bottom");
+						$(e.currentTarget).find("span").addClass("glyphicon glyphicon-triangle-right");
+					})
+					$("#sub" + index).on('shown.bs.collapse', function() {
+						$(e.currentTarget).find("span").removeClass("glyphicon glyphicon-triangle-right");
+						$(e.currentTarget).find("span").addClass("glyphicon glyphicon-triangle-bottom");
+					})
+				})
+				
+				
+			});
+			
+			function load_home1() {
+			document.getElementById("show1").innerHTML = '<object type="text/html" data="html/各区面积均价.html" width="100%" height="100%"></object>';
+			document.getElementById("show2").innerHTML = '<object type="text/html" data="html/Map.html" width="100%" height="100%"></object>';
+			document.getElementById("show3").innerHTML = '<object type="text/html" data="html/pie.html" width="100%" height="100%"></object>';
+			
+			document.getElementById("show4").innerHTML = '<object type="text/html" data="html/是否有电梯柱状图.html" width="100%" height="100%"></object>';
+			document.getElementById("show5").innerHTML = '<object type="text/html" data="html/租房模式地铁柱状图.html" width="100%" height="100%"></object>';
+			document.getElementById("show6").innerHTML = '<object type="text/html" data="html/是否靠近地铁柱状图.html" width="100%" height="100%"></object>';
+			
+			document.getElementById("title1").innerText="西安各区县租房面积均价-柱状图";					
+			document.getElementById("title2").innerText="西安各区县租房平均价格-地图";	
+			document.getElementById("title3").innerText="西安各区县房源数量-圆饼图";	
+			document.getElementById("title4").innerText="是否有电梯柱状图";	
+			document.getElementById("title5").innerText="租房模式地铁柱状图";	
+			document.getElementById("title6").innerText="是否靠近地铁柱状图";	
+			}
+			function load_home2() {
+			document.getElementById("show1").innerHTML = '<object type="text/html" data="html/灞桥区.html" width="100%" height="100%"></object>';
+			document.getElementById("show2").innerHTML = '<object type="text/html" data="html/灞桥区地铁分布情况.html" width="100%" height="100%"></object>';
+			document.getElementById("show4").innerHTML = '<object type="text/html" data="html/灞桥区是否有电梯.html" width="100%" height="100%"></object>';
+			document.getElementById("show5").innerHTML = '<object type="text/html" data="html/灞桥区租房模式.html" width="100%" height="100%"></object>';
+			document.getElementById("show3").innerHTML =null;
+			document.getElementById("show6").innerHTML =null;
+			 document.getElementById("show3").innerText =
+			 "  灞桥区，隶属于陕西省西安市，位于西安市东部，东与临潼区、蓝田县接壤，南与长安区为邻，西与雁塔区、新城区、未央区相连，北与高陵区为界，区域面积324.3平方千米，地势东南高、西北低，气候类型为属暖温带半湿润大陆性季风气候，年平均气温约13.7℃。 截至2022年10月，灞桥区辖9个街道，实际管辖7个街道。2021年末，灞桥区常住人口为59.92万人。"
+			 ;
+			document.getElementById("show6").innerText =
+			"  灞桥区属暖温带半湿润大陆性季风气候，四季分明。冬季前冬偏冷后冬偏暖、少雨雪。春季温暖、干燥、多风、气候多变。夏季炎热多短时暴雨。秋季凉爽，气温速降，秋淋明显。常年主导风向为偏东风。年内主要气象灾害有高温、暴雨、雷电、大风、寒潮等。年平均气温约13.7℃，降水量约684.7毫米。"
+			;
+				
+			document.getElementById("title1").innerText="灞桥区";
+			document.getElementById("title2").innerText="灞桥区地铁分布情况";	
+			document.getElementById("title3").innerText=null;	
+			document.getElementById("title4").innerText="灞桥区是否有电梯";	
+			document.getElementById("title5").innerText="灞桥区租房模式";	
+			document.getElementById("title6").innerText=null;	
+			}		
+			function load_home3() {
+			document.getElementById("show1").innerHTML = '<object type="text/html" data="html/碑林区.html" width="100%" height="100%"></object>';
+			document.getElementById("show2").innerHTML = '<object type="text/html" data="html/碑林区地铁分布情况.html" width="100%" height="100%"></object>';
+			document.getElementById("show4").innerHTML = '<object type="text/html" data="html/碑林区是否有电梯.html" width="100%" height="100%"></object>';
+			document.getElementById("show5").innerHTML = '<object type="text/html" data="html/碑林区租房模式.html" width="100%" height="100%"></object>';
+			document.getElementById("show3").innerHTML =null;
+			document.getElementById("show6").innerHTML =null;	
+			
+			 document.getElementById("show3").innerText =
+			 "碑林区，隶属于陕西省西安市，位于西安市东南部，东与新城区接壤，西与莲湖区相连，南与雁塔区为邻，北与新城区、莲湖区相接  ，区域面积23.37平方千米。 截至2022年10月，碑林区辖8个街道。 2021年，碑林区常住人口76.96万人。"
+			 ;
+			document.getElementById("show6").innerText =
+			" 碑林区属暖温带大陆性季风气候，日温差较小，冬夏季较长，春秋季较短，冷热干湿四季分明。冬季寒冷、风小、多雾、少雨雪；春季温暖、干燥、多风、气候多变；夏季炎热多雨，伏旱突出，多雷雨大风；秋季凉爽，气温速降，秋淋明显。"
+			 ;
+			
+			document.getElementById("title1").innerText="碑林区";
+			document.getElementById("title2").innerText="碑林区地铁分布情况";	
+			document.getElementById("title3").innerText=null;	
+			document.getElementById("title4").innerText="碑林区是否有电梯";	
+			document.getElementById("title5").innerText="碑林区租房模式";	
+			document.getElementById("title6").innerText=null;
+			}
+			function load_home4() {
+			document.getElementById("show1").innerHTML = '<object type="text/html" data="html/高陵区.html" width="100%" height="100%"></object>';
+			document.getElementById("show2").innerHTML = '<object type="text/html" data="html/高陵区地铁分布情况.html" width="100%" height="100%"></object>';
+			document.getElementById("show4").innerHTML = '<object type="text/html" data="html/高陵区是否有电梯.html" width="100%" height="100%"></object>';
+			document.getElementById("show5").innerHTML = '<object type="text/html" data="html/高陵区租房模式.html" width="100%" height="100%"></object>';
+			document.getElementById("show3").innerHTML =null;
+			document.getElementById("show6").innerHTML =null;	
+			
+			 document.getElementById("show3").innerText =
+			 "高陵区，隶属于陕西省西安市，位于西安市北部，东靠临潼区，南接未央区、灞桥区，西连咸阳市渭城区、三原县、泾阳县，北临阎良区，区域面积294平方千米。截至2022年10月，高陵区辖7个街道。 2021年末，高陵区常住人口45.75万人。"
+			 ;
+			 document.getElementById("show6").innerText =
+			 "高陵区属暖温带季风气候。冬夏季节长，春秋季节短，夏热，冬冷，春暖，秋凉，雨热同季，四季分明。最高气温41.4℃，最低气温-20.8℃，年平均气温13.2℃，平均最高气温19.3℃，平均最低气温8.1℃。年降水540毫米左右，地面年平均温度15.7℃，夏季降水不过分集中，占年降水量的40.7%。冬季雨雪稀少，占年总量的3.5%。无霜期212天，高陵空气干燥度为1.3度，反映水份不足。年日照时数2247.3小时。"
+			 ;
+			
+			document.getElementById("title1").innerText="高陵区";
+			document.getElementById("title2").innerText="高陵区地铁分布情况";	
+			document.getElementById("title3").innerText=null;	
+			document.getElementById("title4").innerText="高陵区是否有电梯";	
+			document.getElementById("title5").innerText="高陵区租房模式";	
+			document.getElementById("title6").innerText=null;
+			}
+			function load_home5() {
+			document.getElementById("show1").innerHTML = '<object type="text/html" data="html/莲湖区.html" width="100%" height="100%"></object>';
+			document.getElementById("show2").innerHTML = '<object type="text/html" data="html/莲湖区地铁分布情况.html" width="100%" height="100%"></object>';
+			document.getElementById("show4").innerHTML = '<object type="text/html" data="html/莲湖区是否有电梯.html" width="100%" height="100%"></object>';
+			document.getElementById("show5").innerHTML = '<object type="text/html" data="html/莲湖区租房模式.html" width="100%" height="100%"></object>';
+			document.getElementById("show3").innerHTML =null;
+			document.getElementById("show6").innerHTML =null;
+			
+			 document.getElementById("show3").innerText =
+			 "莲湖区，隶属于陕西省西安市，位于西安市西北部，东与新城区接壤，西和北与未央区相连，南与碑林区、雁塔区毗邻，区域面积38.5平方千米。 截至2022年10月，莲湖区下辖9个街道。 2021年，莲湖区常住人口102.93万人。"
+			 ;
+			 document.getElementById("show6").innerText =
+			 "莲湖区属东亚暖温带大陆性季风气候，冷暖干湿，四季分明。初春气候凉而干燥，四、五月气候温暖，风和日丽；夏季炎热多雨，宜于作物生长；秋季秋高气爽，多阴雨，气候较湿润；冬季不甚寒，干燥少雪。年平均气温13.3℃，7月最热，平均气温26.4℃，极端最高气温出现在6～7月。"
+			;
+				
+			document.getElementById("title1").innerText="莲湖区";
+			document.getElementById("title2").innerText="莲湖区地铁分布情况";	
+			document.getElementById("title3").innerText=null;	
+			document.getElementById("title4").innerText="莲湖区是否有电梯";	
+			document.getElementById("title5").innerText="莲湖区租房模式";	
+			document.getElementById("title6").innerText=null;
+			}
+			function load_home6() {
+			document.getElementById("show1").innerHTML = '<object type="text/html" data="html/临潼区.html" width="100%" height="100%"></object>';
+			document.getElementById("show2").innerHTML = '<object type="text/html" data="html/临潼区地铁分布情况.html" width="100%" height="100%"></object>';
+			document.getElementById("show4").innerHTML = '<object type="text/html" data="html/临潼区是否有电梯.html" width="100%" height="100%"></object>';
+			document.getElementById("show5").innerHTML = '<object type="text/html" data="html/临潼区租房模式.html" width="100%" height="100%"></object>';
+			document.getElementById("show3").innerHTML =null;
+			document.getElementById("show6").innerHTML =null;	
+			
+			 document.getElementById("show3").innerText =
+			 "临潼区，隶属于陕西省西安市，位于关中平原之东，南接蓝田县，北接阎良区，西北接连咸阳市三原县，西接高陵区，东接渭南市临渭区，西南与灞桥区为界。介于东经109°05′49″—109°27′50″，北纬34°16′49″—34°44′11″之间，总面积915平方千米  。截至2022年10月，临潼区下辖23个街道  。截至2022年末，临潼区常住人口68.45万人。"
+			 ;
+			 document.getElementById("show6").innerText =
+			 "临潼区位于东亚暖温带半湿润气候向内陆干旱气候的过渡带上，兼有两种气候的特点，属于大陆性暖温带季风气候。四季冷暖干湿分明：春季暖和，多风，干燥，回暖早，升温快；夏季炎热，日照长，多雨兼伏旱；秋季温暖，降温快，多阴雨；冬季寒冷，干燥，气温低而雨雪少。"
+			 ;
+			
+			document.getElementById("title1").innerText="临潼区";
+			document.getElementById("title2").innerText="临潼区地铁分布情况";	
+			document.getElementById("title3").innerText=null;	
+			document.getElementById("title4").innerText="临潼区是否有电梯";	
+			document.getElementById("title5").innerText="临潼区租房模式";	
+			document.getElementById("title6").innerText=null;
+			}
+			function load_home7() {
+			document.getElementById("show1").innerHTML = '<object type="text/html" data="html/未央区.html" width="100%" height="100%"></object>';
+			document.getElementById("show2").innerHTML = '<object type="text/html" data="html/未央区地铁分布情况.html" width="100%" height="100%"></object>';
+			document.getElementById("show4").innerHTML = '<object type="text/html" data="html/未央区是否有电梯.html" width="100%" height="100%"></object>';
+			document.getElementById("show5").innerHTML = '<object type="text/html" data="html/未央区租房模式.html" width="100%" height="100%"></object>';
+			document.getElementById("show3").innerHTML =null;
+			document.getElementById("show6").innerHTML =null;	
+			
+			 document.getElementById("show3").innerText =
+			  "未央区，隶属于陕西省西安市，是西安主城六区之一，位于西安市区北部，是丝绸之路的起点 ，西安市人民政府驻地。区境东至灞河，与灞桥区为邻；西依漆渠河，与咸阳市秦都区交界；南隔龙首北路，与新城区、莲湖区毗连；北临渭水，与高陵区、咸阳市隔河相望；西南部与雁塔区、长安区接壤。"
+			  ;
+			 document.getElementById("show6").innerText =
+			 "未央区属暖温带大陆性半湿润季风型气候，气候温和湿润，四季分明，年平均气温13.3℃。春季常有寒潮霜冻，风速较大，多浮尘，常有春旱出现；夏季多雨，盛夏易伏旱；初秋多连阴雨，气温下降快，晚秋多晴朗天气，秋高气爽；冬季气候寒冷，干燥少雨。境域幅员不大，气候地区性差异较小。"
+			 ;
+			
+			document.getElementById("title1").innerText="未央区";
+			document.getElementById("title2").innerText="未央区地铁分布情况";	
+			document.getElementById("title3").innerText=null;	
+			document.getElementById("title4").innerText="未央区是否有电梯";	
+			document.getElementById("title5").innerText="未央区租房模式";	
+			document.getElementById("title6").innerText=null;
+			}
+			function load_home8() {
+			document.getElementById("show1").innerHTML = '<object type="text/html" data="html/西咸新区.html" width="100%" height="100%"></object>';
+			document.getElementById("show2").innerHTML = '<object type="text/html" data="html/西咸新区地铁分布情况.html" width="100%" height="100%"></object>';
+			document.getElementById("show4").innerHTML = '<object type="text/html" data="html/西咸新区是否有电梯.html" width="100%" height="100%"></object>';
+			document.getElementById("show5").innerHTML = '<object type="text/html" data="html/西咸新区租房模式.html" width="100%" height="100%"></object>';
+			document.getElementById("show3").innerHTML =null;
+			document.getElementById("show6").innerHTML =null;	
+			
+			 document.getElementById("show3").innerText =
+			 "西咸新区，国家级新区，位于陕西省西安市和咸阳市建成区之间，区域范围涉及西安、咸阳两市所辖7县（区）23个乡镇和街道，规划控制面积882平方千米。 根据第七次全国人口普查结果，2020年11月1日零时，西咸新区常住人口为1304618人。"
+			 ;
+			 document.getElementById("show6").innerText =
+			"西咸新区属半干旱、半湿润的气候区。北依嵯峨山，南望秦岭，处于关中平原核心地带。"
+			 ;
+			
+			document.getElementById("title1").innerText="西咸新区";
+			document.getElementById("title2").innerText="西咸新区地铁分布情况";	
+			document.getElementById("title3").innerText=null;	
+			document.getElementById("title4").innerText="西咸新区是否有电梯";	
+			document.getElementById("title5").innerText="西咸新区租房模式";	
+			document.getElementById("title6").innerText=null;
+			}
+			function load_home9() {
+			document.getElementById("show1").innerHTML = '<object type="text/html" data="html/新城区.html" width="100%" height="100%"></object>';
+			document.getElementById("show2").innerHTML = '<object type="text/html" data="html/新城区地铁分布情况.html" width="100%" height="100%"></object>';
+			document.getElementById("show4").innerHTML = '<object type="text/html" data="html/新城区是否有电梯.html" width="100%" height="100%"></object>';
+			document.getElementById("show5").innerHTML = '<object type="text/html" data="html/新城区租房模式.html" width="100%" height="100%"></object>';
+			document.getElementById("show3").innerHTML =null;
+			document.getElementById("show6").innerHTML =null;	
+			
+			 document.getElementById("show3").innerText =
+			 "新城区，隶属于陕西省西安市，位于西安市东北部，东与灞桥区毗邻，南与碑林区、雁塔区毗邻，北与未央区接壤，西与莲湖区相连，区域面积为29.98平方千米， 气候类型属温带大陆性季风气候，四季分明，年平均气温13.3度。  截至2022年10月，新城区辖9个街道。 2021年，新城区常住人口62.25万人。"
+			 ;
+			 document.getElementById("show6").innerText =
+			"新城区属温带大陆性季风气候，四季分明，具有温和的特点，年平均气温13.3度，一月平均气温不低于零下0.5度，7月份平均气温在26度以上。平均年降水量为500—700亳米，主要集中在夏秋两季。年平均湿度为70—73%。冬季以东北风为主，夏季以西南风为主，年平均风速超过2.0米每秒。"
+			 ;
+			
+			document.getElementById("title1").innerText="新城区";
+			document.getElementById("title2").innerText="新城区地铁分布情况";	
+			document.getElementById("title3").innerText=null;	
+			document.getElementById("title4").innerText="新城区是否有电梯";	
+			document.getElementById("title5").innerText="新城区租房模式";	
+			document.getElementById("title6").innerText=null;
+			}
+			function load_home10() {
+			document.getElementById("show1").innerHTML = '<object type="text/html" data="html/雁塔区.html" width="100%" height="100%"></object>';
+			document.getElementById("show2").innerHTML = '<object type="text/html" data="html/雁塔区地铁分布情况.html" width="100%" height="100%"></object>';
+			document.getElementById("show4").innerHTML = '<object type="text/html" data="html/雁塔区是否有电梯.html" width="100%" height="100%"></object>';
+			document.getElementById("show5").innerHTML = '<object type="text/html" data="html/雁塔区租房模式.html" width="100%" height="100%"></object>';
+			document.getElementById("show3").innerHTML =null;
+			document.getElementById("show6").innerHTML =null;	
+			
+			 document.getElementById("show3").innerText =
+			 "雁塔区，隶属陕西省西安市，是中共陕西省委、陕西省军区、国家级西安高新技术开发区所在地。位于关中平原中部，西安市城区南部，东邻浐河与灞桥区相望，西部、南部与长安区接壤，北以二环路、防洪渠为界，分别与未央区、莲湖区、碑林区、新城区为邻 ，总面积152平方公里。 2021年，雁塔区常住人口208.66万人，户籍总人口143.15万人。 有46个常住少数民族， 截至2021年10月，雁塔区下辖10个街道， 其中鱼化寨街道、丈八街道于2018年9月托管至西安高新区）。区政府驻小寨东路168号。"
+			 ;
+			 document.getElementById("show6").innerText =
+			 "雁塔区处东南沿海湿润气候向西北内陆干旱气候的过渡带上，兼有两种类型气候特征，属暖温带大陆性季风气候。四季冷暖干湿分明。全年多东北风，次为西北风，平均风速2米／秒。年平均太阳辐射总计每平方米111.40千卡，生理辐射量每平方米56.04千卡，占年总辐射量50.3%；年平均日照2026.8小时，日照百分率46.3。年平均气温13.3℃，年无霜期平均208天。降水量年平均584.8毫米。"
+			 ;
+			
+			document.getElementById("title1").innerText="雁塔区";
+			document.getElementById("title2").innerText="雁塔区地铁分布情况";	
+			document.getElementById("title3").innerText=null;	
+			document.getElementById("title4").innerText="雁塔区是否有电梯";	
+			document.getElementById("title5").innerText="雁塔区租房模式";	
+			document.getElementById("title6").innerText=null;
+			}
+			function load_home11() {
+			document.getElementById("show1").innerHTML = '<object type="text/html" data="html/长安区.html" width="100%" height="100%"></object>';
+			document.getElementById("show2").innerHTML = '<object type="text/html" data="html/长安区地铁分布情况.html" width="100%" height="100%"></object>';
+			document.getElementById("show4").innerHTML = '<object type="text/html" data="html/长安区是否有电梯.html" width="100%" height="100%"></object>';
+			document.getElementById("show5").innerHTML = '<object type="text/html" data="html/长安区租房模式.html" width="100%" height="100%"></object>';
+			document.getElementById("show3").innerHTML =null;
+			document.getElementById("show6").innerHTML =null;	
+			
+			 document.getElementById("show3").innerText =
+			 "长安区，隶属于陕西省西安市，位于西安市南部，东临蓝田县，南接宁陕县、柞水县，西与鄠邑区、咸阳市接壤，北和雁塔区、灞桥区为邻，区域面积1583平方千米。 截至2022年10月，长安区下辖25个街道，实际管辖16个街道。2021年，长安区常住人口111.1万人  。"
+			;
+			document.getElementById("show6").innerText =
+			"长安区属于暖温带半湿润大陆性季风气候区，雨量适中，四季分明，气候温和，秋短春长。一般以1月、4月、7月、10月作为冬、春、夏、秋四季的代表月。冬季比较干燥寒冷，春季温暖，夏季炎热多雨，秋季温和湿润。年平均气温15.5℃，降水约600mm，湿度69.6%，无霜期216天，日照1377小时。最冷的1月份平均气温-0.9℃，最热的7月份平均气温26.8℃。雨量主要分布在7、8、9三个月。雨热同期，有利于农作物生长。年平均降雪日为13.8日，初雪日一般在11月下旬，终雪日一般在3月中旬。长安全年多东北风，年平均风速为1.3一2.6米/秒。"
+			 ;
+			
+			document.getElementById("title1").innerText="长安区";
+			document.getElementById("title2").innerText="长安区地铁分布情况";	
+			document.getElementById("title3").innerText=null;	
+			document.getElementById("title4").innerText="长安区是否有电梯";	
+			document.getElementById("title5").innerText="长安区租房模式";	
+			document.getElementById("title6").innerText=null;
+			}
+			function load_homea() {
+			document.getElementById("show1").innerHTML = '<object type="text/html" data="html/面积租金预测-灞桥区.html" width="100%" height="100%"></object>';
+			document.getElementById("show2").innerHTML = '<object type="text/html" data="html/面积租金预测-城区.html" width="100%" height="100%"></object>';
+			document.getElementById("show4").innerHTML = '<object type="text/html" data="html/面积租金预测-郊区.html" width="100%" height="100%"></object>';
+			document.getElementById("show5").innerHTML = '<object type="text/html" data="html/面积租金预测-未央区.html" width="100%" height="100%"></object>';
+			document.getElementById("show3").innerHTML ='<object type="text/html" data="html/面积租金预测-雁塔区.html" width="100%" height="100%"></object>';
+			document.getElementById("show6").innerHTML =null;	
+			document.getElementById("title1").innerText="灞桥区";
+			document.getElementById("title2").innerText="城区（莲湖区、新城区、碑林区）";
+			document.getElementById("title3").innerText="雁塔区";	
+			document.getElementById("title4").innerText="郊区（长安区、高陵区、临潼区、西咸新区）";
+			document.getElementById("title5").innerText="未央区";	
+			document.getElementById("title6").innerText=null;
+			
+			document.getElementById("show6").innerText =
+			"本页统计了平均状况下，西安市各区房屋面积随租金的关系曲线（30~280m^2）。可以看到西安市各个区的租金走向是不一样的，起始租金也不尽相同。若想知道某区某一面积需要付多少租金，只需将光标放在坐标轴上即可，本页可以帮用户判断某区租房大约要付多少租金。 "
+			;
+			}
+			function load_homeb() {
+			document.getElementById("show1").innerHTML = '<object type="text/html" data="html/机器分析：灞桥区各特征对房屋影响因子.html" width="100%" height="100%"></object>';
+			document.getElementById("show2").innerHTML = '<object type="text/html" data="html/机器分析：城区各特征对房屋影响因子.html" width="100%" height="100%"></object>';
+			document.getElementById("show4").innerHTML = '<object type="text/html" data="html/机器分析：郊区各特征对房屋影响因子.html" width="100%" height="100%"></object>';
+			document.getElementById("show5").innerHTML = '<object type="text/html" data="html/机器分析：未央区各特征对房屋影响因子.html" width="100%" height="100%"></object>';
+			document.getElementById("show3").innerHTML ='<object type="text/html" data="html/机器分析：雁塔区各特征对房屋影响因子.html" width="100%" height="100%"></object>';
+			document.getElementById("show6").innerHTML =null;	
+			document.getElementById("title1").innerText="灞桥区";
+			document.getElementById("title2").innerText="城区（莲湖区、新城区、碑林区）";
+			document.getElementById("title3").innerText="雁塔区";	
+			document.getElementById("title4").innerText="郊区（长安区、高陵区、临潼区、西咸新区）";
+			document.getElementById("title5").innerText="未央区";	
+			document.getElementById("title6").innerText=null;
+			
+			document.getElementById("show6").innerText =
+			"本页对所有影响房屋租金的特征进行计算并统计其对租金的影响力。将其中最高的影响因子作为基值（通常为面积），设定值为100，并将其他的影响因子与基值作比，以期得出所有影响因子影响房屋租金的比重，并绘制成柱状图形象展示。 "
+			;
+			}
+			
+			function load_homec() {
+			document.getElementById("show1").innerHTML = '<object type="text/html" data="html/分类供暖.html" width="100%" height="100%"></object>';
+			document.getElementById("show2").innerHTML = '<object type="text/html" data="html/分类宽带.html" width="100%" height="100%"></object>';
+			document.getElementById("show4").innerHTML = '<object type="text/html" data="html/分类面积.html" width="100%" height="100%"></object>';
+			document.getElementById("show5").innerHTML = '<object type="text/html" data="html/分类室.html" width="100%" height="100%"></object>';
+			document.getElementById("show3").innerHTML ='<object type="text/html" data="html/分类租房面积.html" width="100%" height="100%"></object>';
+			document.getElementById("show6").innerHTML =null;	
+			document.getElementById("title1").innerText="供暖";
+			document.getElementById("title2").innerText="宽带";	
+			document.getElementById("title3").innerText="租房价格";	
+			document.getElementById("title4").innerText="面积";	
+			document.getElementById("title5").innerText="室";	
+			document.getElementById("title6").innerText=null;
+			
+			document.getElementById("show6").innerText =
+			"该分类结果基于k均值聚类算法分类得出，5类结果代表5类房源的特征，从中可以分析得出不同租房房源的特点。 从结果图中可以看出每一类中租房价格的趋势与面积几乎一致，说明面积是价格的主要因素。\n" +
+					"观察宽带分类，面积较小的房源反而拥有更高的宽带配备率，这说明拥有宽带上网需求的租客偏向于租小户型的房子。\n" +
+					"再观察供暖数据，也会发现70平到120平的房源供暖率随面积增加而增大，但是面积再大供暖率会下降，推测是大房源会拥有电暖器或是地暖，对暖气的供应有影响。\n" +
+					"最后观察房间数量。能发现所有5类房源的房间数都在2.5室上下，说明房源面积的大小主要影响的是房间面积与客厅面积，影响最大的是生活质量，而不会过多影响数量。\n"
+			;
+			}
+			function load_homed() {
+			document.getElementById("show1").innerHTML = '<object type="text/html" data="html/性价比分析-灞桥区.html" width="100%" height="100%"></object>';
+			document.getElementById("show2").innerHTML = '<object type="text/html" data="html/性价比分析-城区.html" width="100%" height="100%"></object>';
+			document.getElementById("show4").innerHTML = '<object type="text/html" data="html/性价比分析-郊区.html" width="100%" height="100%"></object>';
+			document.getElementById("show5").innerHTML = '<object type="text/html" data="html/性价比分析-未央区.html" width="100%" height="100%"></object>';
+			document.getElementById("show3").innerHTML ='<object type="text/html" data="html/性价比分析-雁塔区.html" width="100%" height="100%"></object>';
+			document.getElementById("show6").innerHTML =null;	
+			document.getElementById("title1").innerText="性价比分析-灞桥区";
+			document.getElementById("title2").innerText="性价比分析-城区（莲湖区、新城区、碑林区）";
+			document.getElementById("title3").innerText="性价比分析-雁塔区";	
+			document.getElementById("title4").innerText="性价比分析-郊区（长安区、高陵区、临潼区、西咸新区）";
+			document.getElementById("title5").innerText="性价比分析-未央区";	
+			document.getElementById("title6").innerText=null;
+			
+			document.getElementById("show6").innerText =
+			"本页绘制了西安市各个区房源性价比分布。通过将同面积情况下预测房价与真实房价对比，使用算法，计算出在30平米到150平米房源性价比质量分布，其中计算公式为：(预测租价-实际租价) / 预测租价 *100%。若该值为正数，则说明有性价比，若在此基础上大于50%，则是高性价比。若该值为负数，则说明没有性价比，若在此基础上大于50%，则是低性价比。"
+			;
+			}
+			function load_homee() {
+			document.getElementById("show1").innerHTML = null;
+			document.getElementById("show2").innerHTML = '<object type="text/html" data="html/Liner.html" width="100%" height="100%"></object>';
+			document.getElementById("show5").innerHTML = '<object type="text/html" data="html/箱型图.html" width="100%" height="100%"></object>';
+			document.getElementById("show4").innerHTML = null;
+			document.getElementById("show3").innerHTML =null;
+			document.getElementById("show6").innerHTML =null;	
+			document.getElementById("title1").innerText=null;
+			document.getElementById("title2").innerText="面积/价格散点图";	
+			document.getElementById("title3").innerText=null;	
+			document.getElementById("title5").innerText="箱型图";	
+			document.getElementById("title4").innerText=null;	
+			document.getElementById("title6").innerText=null;
+			
+			}
+		</script>
+	</body>
+ 
+</html>
